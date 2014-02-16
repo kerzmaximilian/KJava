@@ -83,7 +83,7 @@ public class KImage {
 			this.height = pixArr.length / width;
 		}
 
-	//	lowRes = width / DmelanoNMJ.LOWRES;
+		lowRes = width / KDisplay.LOWRES;
 	}
 
 	public void scaleImg() {
@@ -125,6 +125,8 @@ public class KImage {
 
 			int posG = WIDTH * posXg + posYg;
 
+			
+			int des = 0;
 			for (int i = 0; i < height; i++) {
 				for (int j = 0; j < width; j++) {
 
@@ -140,6 +142,7 @@ public class KImage {
 						KRect rect = new KRect((int) (posYg + lowRes
 								* components[i][j + 1]), (int) (posXg + lowRes
 								* components[i][j]), (int) lowRes, (int) lowRes);
+						
 						if (i < colors.length) {
 							rect.fill(new Color(colors[i]));
 						} else {
@@ -147,32 +150,25 @@ public class KImage {
 						}
 						screen = rect.add(screen);
 					}
+					
+					boolean destrue = false;
+					for(int j = 0; j<deselect.length; j++){
+						if(deselect[j]==i)
+							destrue=true;
+					}
+					
+					if(destrue == true)
+						des++;
+					
+					KFont label = new KFont();
+					label.print((int) (posYg + lowRes
+							* components[i][1]),(int) (posXg + lowRes
+									* components[i][0]),String.valueOf(i+des+1));
+					screen = label.add(screen);
+					
 				}
 			}
 
-			/*if (deComp != null) {
-				for (int i = 0; i < deComp.length; i++) {
-					for (int j = 0; j < deComp[i].length / 2; i++) {
-						int posXI = (int) (posYg + lowRes * deComp[i][j + 1]);
-						int posYI = (int) (posXg + lowRes * deComp[i][j]);
-
-						KLine line = new KLine(posXI, posYI, posXI
-								+ (int) lowRes, posYI);
-						line.fill();
-						line.setLineWidth(1);
-						screen = line.add(screen);
-						line.translate(posXI, posYI, posXI, posYI
-								+ (int) lowRes);
-						screen = line.add(screen);
-						line.translate(posXI + (int) lowRes, posYI, posXI
-								+ (int) lowRes, posYI + (int) lowRes);
-						screen = line.add(screen);
-						line.translate(posXI, posYI + (int) lowRes, posXI
-								+ (int) lowRes, posYI + (int) lowRes);
-						screen = line.add(screen);
-					}
-				}
-			}*/
 		}
 		return screen;
 	}

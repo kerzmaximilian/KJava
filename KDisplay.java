@@ -16,6 +16,7 @@ public class KDisplay extends Canvas implements Runnable {
 	public static final int WIDTH = 1200;
 	public static final int HEIGHT = WIDTH / 12 * 7;
 	public static final String NAME = "Dmelano Manager";
+	public static final int LOWRES = 32;
 
 	private JFrame frame;
 	private boolean run;

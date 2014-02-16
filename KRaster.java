@@ -492,6 +492,10 @@ public class KRaster {
 		construct();
 
 	}
+	
+	public void setScroll(int scroll){
+		this.scroll=scroll;
+	}
 
 	// GETTERS
 
@@ -511,6 +515,10 @@ public class KRaster {
 				ret = true;
 		}
 		return ret;
+	}
+	
+	public int getScroll(){
+		return scroll;
 	}
 
 }

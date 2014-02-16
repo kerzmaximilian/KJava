@@ -11,7 +11,7 @@ public class KLine {
 	private int x2 = 0;
 	private int y2 = 0;
 	private int lineWidth = KGraphics.getDefaultLineWidth();
-	private  int color = KGraphics.getDefaultColorInt();
+	private int color = KGraphics.getDefaultColorInt();
 	private int[] yCoord;
 	private boolean visible = true;
 
@@ -75,17 +75,22 @@ public class KLine {
 				if (range < 0) {
 					range *= -1;
 				}
+
 				int ratio = range / (x2 - x1);
 				for (int k = 1; k < lineWidth + 1; k++) {
 					for (int i = 0; i < yCoord.length; i++) {
 						// yCoord.length == x range
 						for (int j = 0; j < ratio + 1; j++) {
-							if (WIDTH * (yCoord[i] + j) + i + x1 + k < screen.length)
-								if (y2 - y1 != 0)
+							if (WIDTH * (yCoord[i] + j) + i + x1 + k < screen.length) {
+								
+								if ((y2 - y1 > 0)&&(i<yCoord.length-1))
 									screen[WIDTH * (yCoord[i] + j) + i + x1 + k] = color;
-							if (y2 - y1 == 0)
-								screen[WIDTH * (yCoord[i] + j + k) + i + x1] = color;
-
+								if ((y2 - y1 < 0)&&(i>0))
+									screen[WIDTH * (yCoord[i] + j) + i + x1 + k] = color;
+								
+								if (y2 - y1 == 0)
+									screen[WIDTH * (yCoord[i] + j + k) + i + x1] = color;
+							}
 						}
 					}
 				}
@@ -160,6 +165,23 @@ public class KLine {
 		}
 		construct();
 	}
+
 	// GETTERS
+
+	public int getX1() {
+		return x1;
+	}
+
+	public int getX2() {
+		return x2;
+	}
+
+	public int getY1() {
+		return y1;
+	}
+
+	public int getY2() {
+		return y2;
+	}
 
 }

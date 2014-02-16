@@ -26,7 +26,7 @@ public class KGraphics {
 	private static int fontSize_default = 14;
 	private static String fontType_default = "Arial";
 	private static int imgWidth_default = 512;
-	//private static int lowResRatio = imgWidth_default / DmelanoNMJ.LOWRES;
+	private static int lowResRatio = imgWidth_default / KDisplay.LOWRES;
 
 	private static int lineWidth = 2;
 	private static int pointWidth = 1;
@@ -142,9 +142,9 @@ public class KGraphics {
 		return imgWidth_default;
 	}
 
-	/*public static int getLowResImgRatio() {
+	public static int getLowResImgRatio() {
 		return lowResRatio;
-	}*/
+	}
 
 	public static int[] getDeaultColors() {
 		int[] colors = new int[defaults_.length];

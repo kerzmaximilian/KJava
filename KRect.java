@@ -29,7 +29,7 @@ public class KRect {
 
 		// position within screen
 		setOff = new int[height];
-		int posG = KDisplay.WIDTH * posXg + posYg;
+		int posG = WIDTH * posXg + posYg;
 		for (int i = 0; i < height; i++) {
 			setOff[i] = posG;
 			posG += WIDTH;
