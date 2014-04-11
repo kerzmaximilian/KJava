@@ -11,39 +11,39 @@ modifying it to the users wishes, and adding it to the int[] screen array.
 
 --------------------------------------------------------------------------
 
-Example: Creating a rectangle\n\n
+Example: Creating a rectangle
 
-KRect rect = new KRect(posX, posY, width, height);\n
-rect.fill(new Color(200,200,0);\n
-screen = rect.add(screen);\n
+KRect rect = new KRect(posX, posY, width, height);
+rect.fill(new Color(200,200,0);
+screen = rect.add(screen);
 
 --------------------------------------------------------------------------
 
-For components which allow user interaction an Action Listener should be added.\n\n
+For components which allow user interaction an Action Listener should be added.
 
-Example: Creating a button\n\n
+Example: Creating a button
 
-KButton button = new KButton(posX, posY, width, height);\n
-button.setTitle("Title");\n
-button.addActionListener();\n
-screen = button.add(screen);\n
+KButton button = new KButton(posX, posY, width, height);
+button.setTitle("Title");
+button.addActionListener();
+screen = button.add(screen);
 
 --------------------------------------------------------------------------
 
 For components which make use of key inputs the KKeyEvent object which is initiated by the KDisplay class automatically,
-denoted as KE, must be manually added.\n\n
+denoted as KE, must be manually added.
 
-Example: using KE for test inputs in KWrapper\n\n
+Example: using KE for test inputs in KWrapper
 
-KWrapper wrapper = new KWrapper(posX, posY, width, height);\n
-wrapper.setBorder(true);\n
-wrapper.setCursor(true);\n\n
+KWrapper wrapper = new KWrapper(posX, posY, width, height);
+wrapper.setBorder(true);
+wrapper.setCursor(true);
 
-String input = "";\n
-input = wrapper.setText(input, KE);\n
+String input = "";
+input = wrapper.setText(input, KE);
 
-wrapper.addActionListener();\n
-screen = wrapper.add(screen);\n
+wrapper.addActionListener();
+screen = wrapper.add(screen);
 
 --------------------------------------------------------------------------
 
